@@ -6,7 +6,7 @@
 #    By: mcanal <mcanal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/09/09 21:26:32 by mcanal            #+#    #+#              #
-#    Updated: 2016/03/01 19:04:08 by mcanal           ###   ########.fr        #
+#    Updated: 2016/03/02 01:30:59 by mcanal           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -21,7 +21,7 @@ I_DIR =	-I inc/
 O_DIR =	obj
 VPATH =	bst:int:io:lst1:lst2:mem:str
 
-CFLAGS =	-Wall -Wextra -Werror -Wpedantic -Wshadow -Wcast-align \
+CFLAGS =	-Wall -Wextra -Werror #-Wpedantic -Wshadow -Wcast-align \
 			-Wconversion -Wstrict-prototypes -Wmissing-prototypes \
 			-Wmissing-declarations -Wfloat-equal -Wbad-function-cast -Wundef \
 			-Wstrict-overflow=5 -Waggregate-return -Wunreachable-code \

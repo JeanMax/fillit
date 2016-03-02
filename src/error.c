@@ -6,7 +6,7 @@
 /*   By: mcanal <mcanal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/12 03:39:12 by mcanal            #+#    #+#             */
-/*   Updated: 2016/03/01 19:59:29 by mcanal           ###   ########.fr       */
+/*   Updated: 2016/03/02 01:23:26 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ void			error(t_int flag, char *msg)
 	else
 		failn(error[get_index(flag & (t_int)~E_NOEXIT)]);
 	if (!(flag & E_NOEXIT))
-		exit(EXIT_FAILURE); //TODO: forbidden?
+		exit(EXIT_FAILURE);
 }

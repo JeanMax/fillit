@@ -6,7 +6,7 @@
 /*   By: mcanal <mcanal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 00:12:49 by mcanal            #+#    #+#             */
-/*   Updated: 2016/03/01 20:30:45 by mcanal           ###   ########.fr       */
+/*   Updated: 2016/03/02 01:48:51 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void		debug_data(char **data)
 
 int				main(int ac, char **av)
 {
-	char	**data;
+	char	**data; //what about a list(simple?) of char **(tetr)?
 
 	if (ac != 2)
 		error(E_USAGE, NULL);
