@@ -6,7 +6,7 @@
 /*   By: mcanal <mcanal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/29 13:23:15 by mcanal            #+#    #+#             */
-/*   Updated: 2016/03/01 20:10:29 by mcanal           ###   ########.fr       */
+/*   Updated: 2016/03/08 21:01:17 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void					error(t_int flag, char *msg);
 ** PARSER
 ** parse.c
 */
-char					**parse(char *file);
+t_lst					*parse(char *file);
 
 /*
 ** DOER

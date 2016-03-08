@@ -6,14 +6,14 @@
 #    By: mcanal <mcanal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/29 13:16:03 by mcanal            #+#    #+#              #
-#    Updated: 2016/03/01 19:14:26 by mcanal           ###   ########.fr        #
+#    Updated: 2016/03/09 00:35:18 by mcanal           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME =	fillit
 
 C_SRC =		main.c		error.c
-C_PARSER =	parse.c
+C_PARSER =	parse.c		move_tetr.c
 C_DOER =	
 
 O_DIR = obj

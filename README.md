@@ -3,12 +3,12 @@ Just fill it bro!
 
 ## TODO:
 * norme
+* delete data folder
 * grep -ri todo *
 * do it
 
-# Parser:
-* delete data
-* use a simple read instead of get_all...
+### Parser:
+* done! :D
 
-# Doer:
+### Doer:
 * do the doer to do the stuff we have to do (dobidobidodo)

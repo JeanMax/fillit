@@ -6,7 +6,7 @@
 /*   By: mcanal <mcanal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/12 03:39:12 by mcanal            #+#    #+#             */
-/*   Updated: 2016/03/02 01:23:26 by mcanal           ###   ########.fr       */
+/*   Updated: 2016/03/08 21:59:14 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void			error(t_int flag, char *msg)
 		"Usage: ./fillit <file>", //TODO: save av[0] in global?
 		"Dang... can't open file: ",
 		"Ouch... can't read file: ",
-		"What the heck is that file? Nah, just try with something else."
+		"What the heck is that file? Nah, just try with something else. - "
 	};
 
 	if (msg)

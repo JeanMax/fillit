@@ -1,19 +1,19 @@
-Oxoo
-Oxoo
-Oxoo
-Oxoo
+...#
+...#
+...#
+...#
 
-Oooo
-Xxxx
-Oooo
-Oooo
+....
+....
+....
+####
 
-Oooo
-Oxoo
-Oxxo
-Oxoo
+.###
+...#
+....
+....
 
-Oooo
-Oooo
-Oooo
-Xxxx
+....
+..##
+.##.
+....

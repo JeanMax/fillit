@@ -6,7 +6,7 @@
 /*   By: mcanal <zboub@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 18:21:04 by mcanal            #+#    #+#             */
-/*   Updated: 2016/03/02 01:21:13 by mcanal           ###   ########.fr       */
+/*   Updated: 2016/03/09 00:34:48 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,10 @@
 ** include
 */
 # include "fillit.h"
+
+/*
+** move_tetr.c
+*/
+void					move_topleft(char **tetr);
 
 #endif
