@@ -6,7 +6,7 @@
 /*   By: mcanal <zboub@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 00:25:22 by mcanal            #+#    #+#             */
-/*   Updated: 2016/05/24 14:32:20 by mcanal           ###   ########.fr       */
+/*   Updated: 2016/05/24 15:18:47 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void		ft_arrdel(t_arr **arr)
 		while ((*arr)->length--)
 		{
 			if ((*arr)->del)
-				(*arr)->del(*(void **)swap, (*arr)->sizeof_element);
+				(*arr)->del((void *)swap, (*arr)->sizeof_element);
 			swap += (*arr)->sizeof_element;
 		}
 	ft_memdel((void *)&(*arr)->ptr);

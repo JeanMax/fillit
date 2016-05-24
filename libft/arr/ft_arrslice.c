@@ -6,7 +6,7 @@
 /*   By: mcanal <zboub@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/16 22:08:23 by mcanal            #+#    #+#             */
-/*   Updated: 2016/05/24 14:36:22 by mcanal           ###   ########.fr       */
+/*   Updated: 2016/05/24 15:18:37 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void		cpy_rev(t_arr *arr, int start, int stop, int slide)
 			d_swap += arr->sizeof_element;
 		}
 		else if (arr->del)
-			arr->del(*(void **)s_swap, arr->sizeof_element);
+			arr->del((void *)s_swap, arr->sizeof_element);
 		if (s_swap != (t_uchar *)arr->ptr)
 			s_swap -= arr->sizeof_element;
 	}

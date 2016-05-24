@@ -6,7 +6,7 @@
 /*   By: mcanal <mcanal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 00:12:49 by mcanal            #+#    #+#             */
-/*   Updated: 2016/05/24 15:04:05 by mcanal           ###   ########.fr       */
+/*   Updated: 2016/05/24 15:21:00 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ static void		free_tetr(void *tetr, size_t useless)
 	char **swap;
 
 	(void)useless;
-	swap = (char **)tetr;
+	swap = *(char ***)tetr;
 	while (*swap)
 		ft_memdel((void **)swap++);
-	ft_memdel(&tetr);
+	ft_memdel(tetr);
 }
 
 int				main(int ac, char **av)
