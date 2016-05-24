@@ -1,23 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bstfree.c                                       :+:      :+:    :+:   */
+/*   ft_hiter.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcanal <zboub@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/28 15:31:05 by mcanal            #+#    #+#             */
-/*   Updated: 2015/12/02 20:52:48 by mcanal           ###   ########.fr       */
+/*   Created: 2016/05/24 10:28:57 by mcanal            #+#    #+#             */
+/*   Updated: 2016/05/24 11:12:29 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** free a node
+** apply f to each node
+** (this is NOT a nazi function!)
 */
 
 #include "libft.h"
 
-void	ft_bstfree(t_bst **node)
+void		ft_hiter(t_htable *table, void (*f)(t_hnode *node))
 {
-	ft_memdel((void *)&(*node)->content);
-	ft_memdel((void *)node);
+	t_hnode	**bucket;
+	size_t	bucket_size;
+	t_hnode	*node;
+
+	bucket = table->bucket;
+	bucket_size = table->bucket_size;
+	while (bucket_size--)
+	{
+		if (*bucket)
+		{
+			node = *bucket;
+			while (node)
+			{
+				f(node);
+				node = node->next;
+			}
+		}
+		bucket++;
+	}
 }

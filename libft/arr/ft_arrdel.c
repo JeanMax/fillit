@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bstheight.c                                     :+:      :+:    :+:   */
+/*   ft_arrdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcanal <zboub@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/28 23:40:56 by mcanal            #+#    #+#             */
-/*   Updated: 2015/12/03 17:51:16 by mcanal           ###   ########.fr       */
+/*   Created: 2016/03/13 00:25:22 by mcanal            #+#    #+#             */
+/*   Updated: 2016/05/24 14:32:20 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** return the height of the binary tree
+** free the whole t_arr (using arr->del if non-null)
 */
 
 #include "libft.h"
 
-size_t	ft_bstheight(t_bst *root)
+void		ft_arrdel(t_arr **arr)
 {
-	return (root ? 1 + (size_t)ft_max((int)ft_bstheight(root->left),
-										(int)ft_bstheight(root->right)) : 0);
+	t_uchar	*swap;
+
+	if (!*arr)
+		return ;
+	if ((*arr)->del && (swap = (t_uchar *)(*arr)->ptr))
+		while ((*arr)->length--)
+		{
+			if ((*arr)->del)
+				(*arr)->del(*(void **)swap, (*arr)->sizeof_element);
+			swap += (*arr)->sizeof_element;
+		}
+	ft_memdel((void *)&(*arr)->ptr);
+	ft_memdel((void *)arr);
 }

@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bstisperfect.c                                  :+:      :+:    :+:   */
+/*   ft_ldelone.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcanal <zboub@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/29 00:14:09 by mcanal            #+#    #+#             */
-/*   Updated: 2015/12/03 17:48:47 by mcanal           ###   ########.fr       */
+/*   Created: 2014/11/10 02:21:02 by mcanal            #+#    #+#             */
+/*   Updated: 2016/04/03 11:47:24 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** check if a tree is balanced
+** free the link's content using 'del' function, then free the link itself
+** and set it to NULL
 */
 
 #include "libft.h"
 
-t_bool	ft_bstisperfect(t_bst *root)
+void			ft_ldelone(t_lst **alst, void (*del)(void*, size_t))
 {
-	return (root ? ft_bstheight(root->left) == ft_bstheight(root->right) && \
-			ft_bstisperfect(root->left) && ft_bstisperfect(root->right) : TRUE);
+	if (!alst || !*alst)
+		return ;
+	if (del)
+		del((*alst)->content, (*alst)->content_size);
+	ft_memdel((void **)alst);
 }

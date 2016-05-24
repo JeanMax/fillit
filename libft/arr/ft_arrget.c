@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arrdel.c                                        :+:      :+:    :+:   */
+/*   ft_arrget.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcanal <zboub@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/13 22:13:22 by mcanal            #+#    #+#             */
-/*   Updated: 2015/12/13 22:50:02 by mcanal           ###   ########.fr       */
+/*   Created: 2016/03/16 00:13:51 by mcanal            #+#    #+#             */
+/*   Updated: 2016/05/21 10:51:23 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Free a char * tab
-** assume a NULL pointer has been allocated at the end
+** return the element at the specified index
+** negative index allowed! (-1 == end)
 */
 
 #include "libft.h"
 
-static void	del_loop(char **arr)
+void			*ft_arrget(t_arr *arr, int index)
 {
-	if (*arr)
-		del_loop(arr + 1);
-	ft_memdel((void *)arr);
-}
-
-void		ft_arrdel(char ***arr)
-{
-	if (*arr)
-		del_loop(*arr);
-	ft_memdel((void *)arr);
+	if (!arr->length)
+		return (NULL);
+	if (index < 0)
+		index += (int)arr->length;
+	if (index < 0 || index >= (int)arr->length)
+		index = (int)arr->length - 1;
+	return ((void *)
+			((t_uchar *)arr->ptr + ((size_t)index * arr->sizeof_element)));
 }

@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstfree.c                                       :+:      :+:    :+:   */
+/*   ft_hget.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcanal <zboub@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/27 22:21:35 by mcanal            #+#    #+#             */
-/*   Updated: 2015/12/02 20:55:24 by mcanal           ###   ########.fr       */
+/*   Created: 2016/05/23 17:26:07 by mcanal            #+#    #+#             */
+/*   Updated: 2016/05/24 00:15:46 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** free a link
+** return the value corresponding to 'key' in the hash table
+** (using table->key_cmp)
 */
 
 #include "libft.h"
 
-void	ft_lstfree(t_list **link)
+void		*ft_hget(t_htable *table, void *key)
 {
-	ft_memdel((void *)&(*link)->content);
-	ft_memdel((void *)link);
+	t_hnode	*node;
+	size_t	hash;
+
+	hash = table->hash(&key, table->key_size);
+	node = *(table->bucket + hash % table->bucket_size);
+	while (node)
+	{
+		if (hash == node->hash && \
+				!table->key_cmp(&key, &node->key, table->key_size))
+			return (node->value);
+		node = node->next;
+	}
+	return (NULL);
 }

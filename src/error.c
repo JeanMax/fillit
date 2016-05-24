@@ -20,7 +20,7 @@
 #include <stdlib.h>
 
 //I'm pretty sure there is another way...
-static int		get_index(t_int flag)
+static int		get_index(t_uint flag)
 {
 	int		index;
 
@@ -30,7 +30,7 @@ static int		get_index(t_int flag)
 	return (index - 1);
 }
 
-void			error(t_int flag, char *msg)
+void			error(t_uint flag, char *msg)
 {
 	const char	*error[] = {
 		"Usage: ./fillit <file>", //TODO: save av[0] in global?
@@ -41,11 +41,11 @@ void			error(t_int flag, char *msg)
 
 	if (msg)
 	{
-		fail(error[get_index(flag & (t_int)~E_NOEXIT)]);
+		fail(error[get_index(flag & (t_uint)~E_NOEXIT)]);
 		failn(msg);
 	}
 	else
-		failn(error[get_index(flag & (t_int)~E_NOEXIT)]);
+		failn(error[get_index(flag & (t_uint)~E_NOEXIT)]);
 	if (!(flag & E_NOEXIT))
 		exit(EXIT_FAILURE);
 }

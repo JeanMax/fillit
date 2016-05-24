@@ -6,7 +6,7 @@
 /*   By: mcanal <zboub@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/01 19:13:53 by mcanal            #+#    #+#             */
-/*   Updated: 2016/03/09 00:36:52 by mcanal           ###   ########.fr       */
+/*   Updated: 2016/05/24 14:57:19 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ static char		**new_tetr(void)
 
 	if (!(tetr = (char **)malloc(sizeof(char *) * 5)))
 		return (NULL);
-	i = -1;
-	while (++i < 4)
-		tetr[i] = (char *)malloc(5);
-	tetr[4] = NULL;
+	i = 0;
+	while (i < 4)
+		tetr[i++] = (char *)malloc(sizeof(char) * 5);
+	tetr[i] = NULL;
 	return (tetr);
 }
 
-static void		read_tetr(int fd, t_lst **list)
+static void		read_tetr(int fd, t_arr *tetr_arr)
 {
 	int		i;
 	ssize_t	ret;
@@ -93,20 +93,17 @@ static void		read_tetr(int fd, t_lst **list)
 		ft_memcpy(tetr[i], buf + (i * 5), 5);
 	check_tetr(tetr);
 	move_topleft(tetr);
-	ft_laddlast(list, ft_lnew((void *)&tetr, sizeof(&tetr)));
+	ft_arrpush(tetr_arr, tetr, -1);
 	if (ret)
-		read_tetr(fd, list);
+		read_tetr(fd, tetr_arr);
 }
 
-t_lst			*parse(char *file)
+void			parse(char *file, t_arr *tetr_arr)
 {
 	int		fd;
-	t_lst	*list;
 
 	if ((fd = open(file, O_RDONLY)) == -1)
 		error(E_OPEN, file);
-	list = NULL;
-	read_tetr(fd, &list);
+	read_tetr(fd, tetr_arr);
 	close(fd);
-	return (list);
 }

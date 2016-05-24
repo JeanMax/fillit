@@ -6,7 +6,7 @@
 /*   By: mcanal <mcanal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/29 13:23:15 by mcanal            #+#    #+#             */
-/*   Updated: 2016/03/08 21:01:17 by mcanal           ###   ########.fr       */
+/*   Updated: 2016/05/24 12:09:04 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,16 @@ enum					e_error
 };
 
 /*
-** struct def
-typedef struct s_env	t_env;
-struct					s_env
-{
-	char				**envp;
-	t_bst				*bin_root;
-	time_t				last_update;
-};
-*/
-
-/*
 ** BASE
 ** error.c
 */
-void					error(t_int flag, char *msg);
+void					error(t_uint flag, char *msg);
 
 /*
 ** PARSER
 ** parse.c
 */
-t_lst					*parse(char *file);
+void					parse(char *file, t_arr *tetr_arr);
 
 /*
 ** DOER

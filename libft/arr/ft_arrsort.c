@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_freestab.c                                      :+:      :+:    :+:   */
+/*   ft_arrsort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcanal <mcanal@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mcanal <zboub@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/15 03:58:41 by mcanal            #+#    #+#             */
-/*   Updated: 2015/11/30 02:20:07 by mcanal           ###   ########.fr       */
+/*   Created: 2016/03/16 01:45:46 by mcanal            #+#    #+#             */
+/*   Updated: 2016/03/16 01:46:58 by mcanal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Free a char * tab
+** sort an array using shell_sort (based on arr->cmp)
 */
 
 #include "libft.h"
 
-void	ft_freestab(char **tab)
+void			ft_arrsort(t_arr *arr)
 {
-	char	**swap;
-
-	swap = tab;
-	while (*tab)
-		ft_memdel((void *)(tab++));
-	ft_memdel((void *)(tab));
-	ft_memdel((void *)&swap);
+	ft_shellsort(arr->ptr, arr->length, arr->sizeof_element, arr->cmp);
 }
